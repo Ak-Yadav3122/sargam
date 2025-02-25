@@ -10,6 +10,7 @@ import {
 	InputRightElement,
 	Spinner,
 	Text,
+    useToast, // Add this import
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -23,13 +24,14 @@ import { resetPlayer } from "../redux/slices/playerSlice";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
-	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [showPassword, setShowPassword] = useState(false);
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const toast = useToast(); // Add this hook
 
 	const validateFields = () => {
 		if (username == "" || password == "") {
@@ -45,20 +47,28 @@ const RegisterPage = () => {
 		if (validateFields()) {
 			setLoading(true);
 			try {
-				const response = await client.post("/api/users/register", {
+				const response = await client.post("/users/register", {
 					username,
 					password,
 				});
 				
 				if (response.data) {
-					toast.success("Registration successful!");
+					toast({
+						description: `Registration successful ${username} Jii.`,
+						status: "success",
+						duration: 3000,
+					});
 					dispatch(resetPlayer());
 					dispatch(loginUser(response.data));
-					navigate("/login");
+					navigate("/home"); // Changed from /login to /home
 				}
 			} catch (error) {
-				console.error("Registration error:", error);
-				toast.error(error.response?.data?.message || "Registration failed!");
+				setError(error.response?.data?.message || "Registration failed!");
+				toast({
+					description: error.response?.data?.message || "Registration failed!",
+					status: "error",
+					duration: 3000,
+				});
 			} finally {
 				setLoading(false);
 			}
