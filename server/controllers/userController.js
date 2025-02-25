@@ -3,9 +3,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Song from "../models/Song.js";
 
-//@desc Login a user
-//@route POST /api/auth/login
-//@access public
 const loginUser = async (req, res) => {
 	const { username, password } = req.body;
 
@@ -16,12 +13,12 @@ const loginUser = async (req, res) => {
 	const user = await User.findOne({ username });
 
 	if (!user) {
-		return res.status(404).json({ message: "User not found!" });
+		return res.status(404).json({ message: "User not found! Please Register" });
 	}
 
 	const passwordMatch = await bcrypt.compare(password, user.password);
 	if (!passwordMatch) {
-		return res.status(400).json({ message: "Incorrect username or password!" });
+		return res.status(400).json({ message: "Incorrect username or password! Please Retry" });
 	}
 
 	const accessToken = jwt.sign(
@@ -94,7 +91,7 @@ const getUserFavoriteSongs = async (req, res) => {
 	const user = await User.findById(id);
 
 	if (!user) {
-		return res.status(404).json({ message: "User not found!" });
+		return res.status(404).json({ message: "User not found! Please Register" });
 	}
 
 	const userFavorites = await Promise.all(
