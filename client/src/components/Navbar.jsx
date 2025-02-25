@@ -12,7 +12,6 @@ import {
   Heading,
   Hide,
   Show,
-  Text,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../redux/slices/userSlice";
@@ -205,11 +204,10 @@ const NavContent = () => {
           <Box p={3}>
             <Flex align="center" gap={4} color="accent.light">
               <HiOutlineUserCircle size={20} color="inherit" />
-              <Text color="inherit" fontSize="sm">
-                <Heading as="h5" fontWeight="semibold" fontSize="19px">
-                  {user?.username}
-                </Heading>
-              </Text>
+              {/* Fix: Remove Text component wrapping Heading */}
+              <Heading as="h5" fontWeight="semibold" fontSize="19px">
+                {user?.username}
+              </Heading>
             </Flex>
             <Button
               onClick={handleLogout}
@@ -220,7 +218,6 @@ const NavContent = () => {
               fontWeight={400}
               gap={3}
             >
-              {" "}
               <AiOutlineLogout size={20} /> 𝓛𝓸𝓰𝓞𝓾𝓽
             </Button>
           </Box>
