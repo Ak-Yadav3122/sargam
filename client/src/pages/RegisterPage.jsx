@@ -54,7 +54,7 @@ const RegisterPage = () => {
 				
 				if (response.data) {
 					toast({
-						description: `Registration successful ${username} Jii.`,
+						description: `Registration successfull ${username} Jii.`,
 						status: "success",
 						duration: 3000,
 					});
