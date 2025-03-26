@@ -93,7 +93,7 @@ const likeSong = async (req, res) => {
 		const user = await User.findById(userId);
 
 		if (!user) {
-			return res.json(404).json({ message: "User not found! Please Register" });
+			return res.json(404).json({ message: "User are not found! Please Register First..." });
 		}
 		if (!song) {
 			return res.json(404).json({ message: "Song not found!" });
