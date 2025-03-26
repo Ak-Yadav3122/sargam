@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173', // Vite's default port
+  origin: 'http://localhost:5173',
   credentials: true
 }));
 
@@ -28,9 +28,9 @@ app.use("/api/playlists/", playlistRouter);
 const port = process.env.PORT || 6001;
 
 app.listen(port, () => {
-  console.log(`Server Running At Port ${port}`);
+  console.log(`Your Server is Running At Port ${port}`);
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello From Music Backend...");
+  res.send("Hello From your Music Backend...");
 });
