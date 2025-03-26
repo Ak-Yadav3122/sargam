@@ -13,12 +13,12 @@ const loginUser = async (req, res) => {
 	const user = await User.findOne({ username });
 
 	if (!user) {
-		return res.status(404).json({ message: "User not found! Please Register" });
+		return res.status(404).json({ message: "User are not found! Please Register" });
 	}
 
 	const passwordMatch = await bcrypt.compare(password, user.password);
 	if (!passwordMatch) {
-		return res.status(400).json({ message: "Incorrect username or password! Please Retry" });
+		return res.status(400).json({ message: "Incorrect password! Please enter the right password" });
 	}
 
 	const accessToken = jwt.sign(
@@ -53,7 +53,7 @@ const registerUser = async (req, res) => {
 
 	const duplicateUsername = await User.findOne({ username });
 	if (duplicateUsername) {
-		return res.status(400).json({ message: "Username already exists!" });
+		return res.status(400).json({ message: " Username are already exists! Please use different username" });
 	}
 
 	const hashedPassword = await bcrypt.hash(password, 10);
@@ -91,7 +91,7 @@ const getUserFavoriteSongs = async (req, res) => {
 	const user = await User.findById(id);
 
 	if (!user) {
-		return res.status(404).json({ message: "User not found! Please Register" });
+		return res.status(404).json({ message: "User are not found! Please Register First..." });
 	}
 
 	const userFavorites = await Promise.all(
