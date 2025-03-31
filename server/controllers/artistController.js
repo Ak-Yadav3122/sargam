@@ -21,7 +21,7 @@ const getTopArtistes = async (req, res) => {
 	const artistes = await Artiste.find();
 
 	if (!artistes) {
-		res.status(400).json({ message: "Artistes not found!" });
+		res.status(400).json({ message: "Artistes are not found!" });
 	}
 
 	const result = artistes.slice(1, 11);
@@ -37,7 +37,7 @@ const getArtiste = async (req, res) => {
 
 	const artiste = await Artiste.findById(id);
 	if (!artiste) {
-		return res.status(404).json({ message: "Artiste not found!" });
+		return res.status(404).json({ message: "Artiste are not found!" });
 	}
 
 	const artisteSongs = await Song.find({ artistIds: id });
