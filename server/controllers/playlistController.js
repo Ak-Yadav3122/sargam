@@ -35,7 +35,7 @@ const createPlaylist = async (req, res) => {
 		songIds.map(async (id) => {
 			const songExists = await Song.findById(id);
 			if (!songExists) {
-				return res.status(404).json({ message: "Song not found" });
+				return res.status(404).json({ message: "Song are not found" });
 			}
 		})
 	);
@@ -69,7 +69,7 @@ const getPlaylist = async (req, res) => {
 		const playlist = await Playlist.findById(id);
 
 		if (!playlist) {
-			return res.status(404).json({ message: "Playlist not found!" });
+			return res.status(404).json({ message: "Playlist are not found!" });
 		}
 
 		let songs = [];
@@ -78,7 +78,7 @@ const getPlaylist = async (req, res) => {
 			playlist.songs.map(async (songId) => {
 				const playlistSong = await Song.findById(songId);
 				if (!playlistSong) {
-					return res.status(404).json({ message: "Song not found" });
+					return res.status(404).json({ message: "Song are not found" });
 				} else {
 					songs.push(playlistSong);
 				}
@@ -105,7 +105,7 @@ const editPlaylist = async (req, res) => {
 	}
 
 	if (!playlist) {
-		return res.status(400).json({ message: "Playlist not found!" });
+		return res.status(400).json({ message: "Playlist are not found!" });
 	}
 
 	if (playlist.userId !== userId) {
