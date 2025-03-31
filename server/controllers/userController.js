@@ -83,9 +83,6 @@ const registerUser = async (req, res) => {
 	res.status(200).json({ user: returnedUser, token: accessToken });
 };
 
-//@desc Get a user's favorite songs
-//@route GET /api/songs/user/favorites
-//@access private
 const getUserFavoriteSongs = async (req, res) => {
 	const { id } = req.user;
 	const user = await User.findById(id);
