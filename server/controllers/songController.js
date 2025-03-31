@@ -96,7 +96,7 @@ const likeSong = async (req, res) => {
 			return res.json(404).json({ message: "User are not found! Please Register First..." });
 		}
 		if (!song) {
-			return res.json(404).json({ message: "Song not found!" });
+			return res.json(404).json({ message: "Song are not found!" });
 		}
 
 		const isLiked = song.likes.get(userId);
