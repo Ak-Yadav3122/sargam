@@ -5,7 +5,7 @@ export const verifyToken = async (req, res, next) => {
 		let token = req.header("Authorization") || req.header("authorization");
 
 		if (!token) {
-			return res.status(403).send("Authorization missing!");
+			return res.status(403).send("Authorization are missing!");
 		}
 
 		if (token && token.startsWith("Bearer")) {
@@ -20,7 +20,7 @@ export const verifyToken = async (req, res, next) => {
 			});
 
 			if (!token) {
-				res.status(401).send("Authorization token missing");
+				res.status(401).send("Authorization token are missing");
 			}
 		}
 	} catch (error) {
