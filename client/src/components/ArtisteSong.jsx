@@ -41,7 +41,7 @@ const ArtisteSong = ({ song, handlePlay }) => {
 			.then((res) => {
 				dispatch(setUser(res.data));
 				toast({
-					description: "Your favorites have been updated",
+					description: "Your favorites list have been updated",
 					status: "success",
 				});
 			})
@@ -56,7 +56,7 @@ const ArtisteSong = ({ song, handlePlay }) => {
 	const handleLike = () => {
 		if (!token) {
 			dispatch(
-				setModalMessage("Please login to save songs to your favorites.")
+				setModalMessage("Please login to save a songs to your favorites.")
 			);
 			onOpen();
 		} else {
