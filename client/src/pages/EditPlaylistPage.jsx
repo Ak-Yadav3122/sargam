@@ -114,8 +114,8 @@ const EditPlaylistPage = () => {
 			toast({
 				description:
 					inputs.playlistName == ""
-						? "Give your playlist a name!"
-						: "Add songs to your playlist!",
+						? "Give your playlist name!"
+						: "Add song to your playlist!",
 				status: "error",
 			});
 		} else {
@@ -150,7 +150,7 @@ const EditPlaylistPage = () => {
 				setEditLoading(false);
 				toast({
 					description:
-						err?.response.data.message || "Could not update playlist!",
+						err?.response.data.message || "Could not update your playlist!",
 					status: "error",
 				});
 			});
