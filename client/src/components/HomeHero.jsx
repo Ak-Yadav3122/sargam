@@ -34,7 +34,7 @@ const HomeHero = () => {
 						Amazing Playlists
 					</Heading>
 					<Text fontSize={{ base: "sm", md: "md" }} w="80%">
-						Listen to the best playlists curated by us and our users.
+						Listen to the Best Playlists curated by us and our users.
 					</Text>
 					<Link to="/playlists">
 						<Button
