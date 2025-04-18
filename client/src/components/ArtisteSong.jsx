@@ -41,7 +41,7 @@ const ArtisteSong = ({ song, handlePlay }) => {
 			.then((res) => {
 				dispatch(setUser(res.data));
 				toast({
-					description: "Your favorites list have been updated",
+					description: "Your favorite song list have been updated",
 					status: "success",
 				});
 			})
