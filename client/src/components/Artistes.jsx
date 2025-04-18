@@ -52,7 +52,7 @@ const Artistes = () => {
 				</Flex>
 			) : error ? (
 				<Box my={2}>
-					<Text>Sorry, an error occured</Text>
+					<Text>Sorry, The error occured</Text>
 				</Box>
 			) : (
 				<Flex
