@@ -258,7 +258,7 @@ const EditPlaylistPage = () => {
 				)}
 				<Flex align="center" mt={6} justify="space-between">
 					<Heading fontSize="md" color="zinc.400" fontWeight={400}>
-						Add Other Songs
+						Add Another Songs
 					</Heading>
 					<Button
 						onClick={fetchOtherSongs}
@@ -290,7 +290,7 @@ const EditPlaylistPage = () => {
 				)}
 				{!otherSongs.loading && otherSongs.error && (
 					<Box my={2}>
-						<Text color="zinc.400">Sorry, an error occured</Text>
+						<Text color="zinc.400">Sorry, an error are occured</Text>
 					</Box>
 				)}
 				{!otherSongs.loading && !otherSongs.error && (
