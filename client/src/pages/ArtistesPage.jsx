@@ -43,7 +43,7 @@ const ArtistesPage = () => {
 					Artistes
 				</Heading>
 				<Text fontSize="sm" color="zinc.400">
-					Discover new artistes
+					Discover new Artistes
 				</Text>
 			</Box>
 			{loading && artistes.length < 1 && (
@@ -65,7 +65,7 @@ const ArtistesPage = () => {
 			</Grid>
 			{error && (
 				<Box>
-					<Text>Sorry, an error occured</Text>
+					<Text>Sorry, an error are occured</Text>
 				</Box>
 			)}
 		</Box>
