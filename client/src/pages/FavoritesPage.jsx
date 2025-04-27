@@ -87,7 +87,7 @@ const FavoritesPage = () => {
 			)}
 			{error && (
 				<Text color="zinc.300" my={2}>
-					Sorry, an error occured
+					Sorry, an error occured. Please try again later.
 				</Text>
 			)}
 			<Flex direction="column" gap={4} mt={4}>
