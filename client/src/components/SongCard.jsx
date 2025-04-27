@@ -48,7 +48,7 @@ const SongCard = ({ song }) => {
 			.then((res) => {
 				dispatch(setUser(res.data));
 				toast({
-					description: "Your favorites have been updated",
+					description: "Your favorite list have been updated",
 					status: "success",
 				});
 			})
